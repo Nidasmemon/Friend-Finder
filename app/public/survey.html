@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+                integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+                crossorigin="anonymous"></script>
 
 </head>
 
@@ -16,22 +19,21 @@
     <div class="container">
 
         <div class="jumbotron">
-
             <h2>Survey Questions</h2>
-
-
         </div>
 
         <h3><strong>About You</strong></h3>
+        <br>
         <h4>Name (Required)</h4>
         <input type="text" id="name" class="form-control" required="">
+        <br>
 
         <h4>Link to Photo Image (Required)</h4>
         <input type="text" id="photo" class="form-control" required="">
 
         <hr>
-
-        <hr>
+        <br>
+    
 
         <h3><strong>Question 1</strong></h3>
         <h4>I enjoy meeting and getting to know new people.</h4>
@@ -43,6 +45,9 @@
             <option value="4">4</option>
             <option value="5">5 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
+        <br>
 
         <h3><strong>Question 2</strong></h3>
         <h4>I stay calm under pressure.</h4>
@@ -54,6 +59,9 @@
             <option value="4">4</option>
             <option value="5">5 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
+        <br>
 
 
         <h3><strong>Question 3</strong></h3>
@@ -66,6 +74,9 @@
             <option value="4">4</option>
             <option value="5">5 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
+        <br>
 
 
         <h3><strong>Question 4</strong></h3>
@@ -78,6 +89,9 @@
             <option value="4">4</option>
             <option value="5">5 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
+        <br>
 
 
         <h3><strong>Question 5</strong></h3>
@@ -90,6 +104,9 @@
             <option value="4">4</option>
             <option value="5">5 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
+        <br>
 
 
         <h3><strong>Question 6</strong></h3>
@@ -102,6 +119,9 @@
             <option value="4">4</option>
             <option value="5">5 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
+        <br>
 
 
         <h3><strong>Question 7</strong></h3>
@@ -114,6 +134,10 @@
             <option value="4">4</option>
             <option value="5">5 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
+        <br>
+
 
         <h3><strong>Question 8</strong></h3>
         <h4>I love staying home and just relaxing in front of the TV.</h4>
@@ -125,6 +149,10 @@
             <option value="4">4</option>
             <option value="5">5 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
+        <br>
+
 
         <h3><strong>Question 9</strong></h3>
         <h4>I don't mind doing chores around the house.</h4>
@@ -136,6 +164,10 @@
             <option value="4">4</option>
             <option value="5">5 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
+        <br>
+
 
         <h3><strong>Question 10</strong></h3>
         <h4>I like to take risks and challenges.</h4>
@@ -147,64 +179,102 @@
             <option value="4">4</option>
             <option value="5">5 (Strongly Agree)</option>
         </select>
+        <br>
+        <br>
 
-        <button id="submit">Submit</button>
+        <button type="button" id="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Submit
+        </button>
+        <br>
+        <br>
+
+        <!-- Modal -->
+        <div class="modal" id="myModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Meet your new best friend!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                    </div>
+                    <div>
+                        <img class="modal-pic" width=300px>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="footer">
+            <div class="container">
+                <a href="/api/friends">API Friends List</a> | <a
+                    href="https://github.com/Nidasmemon/Friend-Finder">GitHub Repo</a>
+            </div>
+            <br>
+        </footer>
+
+
     </div>
-    
+
 </body>
 
-</html>    
+</html>
 
-    
-    <script>
 
-        $("#submit").on("click", function () {
-            event.preventDefault();
-            var newFriend = {
-                name: $("#name").val(),
-                photo: $("#photo").val(),
-                scores: [
-                    $("#q1").val(),
-                    $("#q2").val(),
-                    $("#q3").val(),
-                    $("#q4").val(),
-                    $("#q5").val(),
-                    $("#q6").val(),
-                    $("#q7").val(),
-                    $("#q8").val(),
-                    $("#q9").val(),
-                    $("#q10").val()
-                ]
-            }
+<script>
 
-            console.log(newFriend);
+    $("#submit").on("click", function () {
+        event.preventDefault();
+        var newFriend = {
+            name: $("#name").val(),
+            photo: $("#photo").val(),
+            scores: [
+                $("#q1").val(),
+                $("#q2").val(),
+                $("#q3").val(),
+                $("#q4").val(),
+                $("#q5").val(),
+                $("#q6").val(),
+                $("#q7").val(),
+                $("#q8").val(),
+                $("#q9").val(),
+                $("#q10").val()
+            ]
+        }
 
-            // $.post({
-            //     url: "/api/friends",
-            //     method: "POST",
-            //     data: newFriend
-            // })
-            // .then(function(data){
-            //     console.log(data);
-            //     console.log("hello world")
-            // })
+        console.log(newFriend);
 
-            $.post("/api/friends", newFriend, function (data) {
-                console.log(data);    
+        $.post("/api/friends", newFriend, function (data) {
+            // console.log(data);
+            // console.log(data.name);
+            // console.log(data.photo);
 
-                $("#name").val("");
-                $("#photo").val("");
-                $("#q1").val("");
-                $("#q2").val("");
-                $("#q3").val("");
-                $("#q4").val("");
-                $("#q5").val("");
-                $("#q6").val("");
-                $("#q7").val("");
-                $("#q8").val("");
-                $("#q9").val("");
-                $("#q10").val("");
-            })
-        });
 
-    </script>
+            $("#name").val("");
+            $("#photo").val("");
+            $("#q1").val("");
+            $("#q2").val("");
+            $("#q3").val("");
+            $("#q4").val("");
+            $("#q5").val("");
+            $("#q6").val("");
+            $("#q7").val("");
+            $("#q8").val("");
+            $("#q9").val("");
+            $("#q10").val("");
+
+            $("#myModal").modal()
+            $(".modal-body").text(data.name);
+            $(".modal-pic").attr("src", data.photo);
+            console.log(data.photo)
+        })
+    });
+
+</script>
